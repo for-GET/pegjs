@@ -101,7 +101,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['[]', 'function() { code }'])
+          constsDetails(['[]', 'function(__result) { code }'])
         );
       });
     });
@@ -124,7 +124,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           '{ type: "literal", value: "a", description: "\\"a\\"" }',
-          'function(a) { code }'
+          'function(a, __result) { code }'
         ]));
       });
     });
@@ -164,7 +164,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result) { code }'
         ]));
       });
     });
@@ -322,7 +322,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }', 'void 0', 'peg$FAILED'])
+          constsDetails(['function() { code, __result }', 'void 0', 'peg$FAILED'])
         );
       });
     });
@@ -373,7 +373,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }',
+          'function(a, b, c, __result) { code }',
           'void 0'
         ]));
       });
@@ -399,7 +399,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }', 'void 0', 'peg$FAILED'])
+          constsDetails(['function() { code, __result }', 'void 0', 'peg$FAILED'])
         );
       });
     });
@@ -450,7 +450,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }',
+          'function(a, b, c) { code, __result }',
           'void 0'
         ]));
       });
