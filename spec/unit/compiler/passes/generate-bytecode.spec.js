@@ -107,7 +107,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           '{ type: "literal", value: "a", description: "\\"a\\"" }',
-          'function(__result) { code }'
+          'function(__result, __ruleName) { code }'
         ]));
       });
     });
@@ -130,7 +130,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           '{ type: "literal", value: "a", description: "\\"a\\"" }',
-          'function(a, __result) { code }'
+          'function(a, __result, __ruleName) { code }'
         ]));
       });
     });
@@ -170,7 +170,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c, __result) { code }'
+          'function(a, b, c, __result, __ruleName) { code }'
         ]));
       });
     });
@@ -376,7 +376,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function(__result) { code }'])
+          constsDetails(['function(__result, __ruleName) { code }'])
         );
       });
     });
@@ -426,7 +426,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c, __result) { code }'
+          'function(a, b, c, __result, __ruleName) { code }'
         ]));
       });
     });
@@ -451,7 +451,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function(__result) { code }'])
+          constsDetails(['function(__result, __ruleName) { code }'])
         );
       });
     });
@@ -501,7 +501,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c, __result) { code }'
+          'function(a, b, c, __result, __ruleName) { code }'
         ]));
       });
     });
