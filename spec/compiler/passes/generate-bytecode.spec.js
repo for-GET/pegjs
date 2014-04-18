@@ -125,7 +125,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           '{ type: "literal", value: "a", description: "\\"a\\"" }',
-          'function(a) { code }'
+          'function(a, __result, __ruleName) { code }'
         ]));
       });
     });
@@ -164,7 +164,7 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result, __ruleName) { code }'
         ]));
       });
     });
@@ -302,7 +302,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }'])
+          constsDetails(['function(__result, __ruleName) { code }', 'void 0', 'peg$FAILED'])
         );
       });
     });
@@ -352,7 +352,8 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result, __ruleName) { code }',
+          'void 0'
         ]));
       });
     });
@@ -377,7 +378,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }'])
+          constsDetails(['function(__result, __ruleName) { code }', 'void 0', 'peg$FAILED'])
         );
       });
     });
@@ -427,7 +428,8 @@ describe("compiler pass |generateBytecode|", function() {
           '{ type: "literal", value: "b", description: "\\"b\\"" }',
           '"c"',
           '{ type: "literal", value: "c", description: "\\"c\\"" }',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result, __ruleName) { code }',
+          'void 0'
         ]));
       });
     });
