@@ -55,6 +55,8 @@ describe("compiler pass |generateBytecode|", function() {
         24,                          // SILENT_FAILS_ON
         14, 1, 2, 2, 18, 1, 19, 2,   // <expression>
         25,                          // SILENT_FAILS_OFF
+        10, 1, 0,                    // IF_ERROR
+        26,                          // SILENT_FAILS_RESET
         10, 2, 0,                    // IF_ERROR
         19, 0                        //   * FAIL
       ]));
