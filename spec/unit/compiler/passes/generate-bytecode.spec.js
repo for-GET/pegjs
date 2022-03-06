@@ -107,7 +107,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           'peg$literalExpectation("a", false)',
-          'function() { code }'
+          'function(__result) { code }'
         ]));
       });
     });
@@ -130,7 +130,7 @@ describe("compiler pass |generateBytecode|", function() {
         expect(pass).toChangeAST(grammar, constsDetails([
           '"a"',
           'peg$literalExpectation("a", false)',
-          'function(a) { code }'
+          'function(a, __result) { code }'
         ]));
       });
     });
@@ -170,7 +170,7 @@ describe("compiler pass |generateBytecode|", function() {
           'peg$literalExpectation("b", false)',
           '"c"',
           'peg$literalExpectation("c", false)',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result) { code }'
         ]));
       });
     });
@@ -384,7 +384,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }'])
+          constsDetails(['function(__result) { code }'])
         );
       });
     });
@@ -434,7 +434,7 @@ describe("compiler pass |generateBytecode|", function() {
           'peg$literalExpectation("b", false)',
           '"c"',
           'peg$literalExpectation("c", false)',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result) { code }'
         ]));
       });
     });
@@ -459,7 +459,7 @@ describe("compiler pass |generateBytecode|", function() {
       it("defines correct constants", function() {
         expect(pass).toChangeAST(
           grammar,
-          constsDetails(['function() { code }'])
+          constsDetails(['function(__result) { code }'])
         );
       });
     });
@@ -509,7 +509,7 @@ describe("compiler pass |generateBytecode|", function() {
           'peg$literalExpectation("b", false)',
           '"c"',
           'peg$literalExpectation("c", false)',
-          'function(a, b, c) { code }'
+          'function(a, b, c, __result) { code }'
         ]));
       });
     });
